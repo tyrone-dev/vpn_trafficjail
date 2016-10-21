@@ -5,7 +5,7 @@
 DEBUG_MODE=true
 DEBUG_PATH=/usr/vpn_trafficjail/vpn_log.txt
 
-VPN_DIR=/etc/openvpn
+VPN_DIR=/etc/openvpn # directory where your opvn file is stored
 ISP_IP='' # set your ISP IP - mask is fine i.e. 171. or 171.2.
 # takes opvn file as cli argument
 VPN=$1
@@ -28,7 +28,7 @@ sleep 15
 VPN_IP=$(wget http://ipinfo.io/ip -qO -)
 
 # check that the IP address is NOT from your ISP
-if [ $VPN_IP == *'169'*]
+if [ $VPN_IP == *$ISP_IP*]
 then
     if [ "$DEBUG_MODE" = true ] ; then echo "ISP subnet detected . . . Will try again" >> $DEBUG_PATH ; fi
     exit 1
