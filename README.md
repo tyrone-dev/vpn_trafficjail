@@ -20,4 +20,4 @@ Suggest to add to crontab. This, for example, performs a check every 1 minute.
 
 ```
 */1 * * * * cd /usr/vpn_trafficjail && sudo bash vpn_traffic_jail.sh [your_openvpn_file.ovpn]
-'''
+```
